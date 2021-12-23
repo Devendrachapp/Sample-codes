@@ -1,0 +1,110 @@
+Hello World Program 
+
+
+                                                              object Hello2 extends App {
+                                           (OR)                   println("Hello, world")}
+
+object Hello {                                                                      
+    def main(args: Array[String]) = {
+        println("Hello, world")
+    }
+}
+Explanation:
+     It defines method named MAIN, inside scala OBJECT named HELLO
+     object is similar to class,but you specifically use it when you want a single instance of that class
+     main takes an input parameter named args that is a string array
+     Array is a class that wraps the Java array primitive
+
+
+**  REPL is a command-line interpreter, it just sits there waiting for you to type something. 
+Once you’re in the REPL, you can type Scala expressions to see how they work:
+
+scala> val x = 1                                                                                *(VAL is IMMUTABLE) (VAR is MUTABLE)
+x: Int = 1
+
+scala> val y = x + 1
+y: Int = 2
+
+
+
+* If we donot assign the value for the result by default it takes res0, res1,
+*In Scala the general rule is that you should always use a val field unless there’s a good reason not to. 
+This simple rule (a) makes your code more like algebra and (b) helps get you started down the path to functional programming, where all fields are immutable.
+*val p = new Person("Candy")           // preferred
+*val p: Person = new Person("Candy")   // unnecessarily verbose
+
+
+Some of the Basic Numeric types to declare:
+val b: Byte = 1
+val x: Int = 1
+val l: Long = 1
+val s: Short = 1
+val d: Double = 2.0
+val f: Float = 3.0
+
+   * We can use Bigint and Bigdecimal
+     var b = BigInt(1234567890)
+     var b = BigDecimal(123456.789)
+    
+** TWO MAIN NOTES ABOUT STRINGS:
+    all you have to do is to precede the string with the letter s, and then put a $ symbol before your variable names inside the string. 
+    This feature is known as string interpolation.
+    
+    
+    
+    A few other benefits of string interpolation are:
+
+You can precede strings with the letter f, which lets you use printf style formatting inside strings
+The raw interpolator performs no escaping of literals (such as \n) within the string
+You can create your own string interpolators
+
+** FOR USING OF MULTI LINE STRINGS TO AVOID LINES (|) THESE LINES FROM THE REPL WE CAN USE THOSE LINES IN THE STATEMENTS ENDING AND ADDING .STRIPMARGIN AT ENDING.
+
+
+
+* Writing Command Line outputs:
+ As we’ve already shown, you write output to standard out (STDOUT) using println:
+
+println("Hello, world")
+That function adds a newline character after your string, so if you don’t want that, just use print instead:
+
+print("Hello without newline")
+When needed, you can also write output to standard error (STDERR) like this:
+
+System.err.println("yikes, an error happened")
+
+*** Because println is so commonly used, there’s no need to import it. The same is true of other commonly-used data types like String, Int, Float, etc.
+
+
+* Reading Inputs
+
+   There are several ways to read command-line input, but the easiest way is to use the readLine method in the scala.io.StdIn package. To use it, you need to first import it, like this:
+
+import scala.io.StdIn.readLine
+To demonstrate how this works, let’s create a little example. Put this source code in a file named HelloInteractive.scala:
+
+import scala.io.StdIn.readLine
+
+object HelloInteractive extends App {
+
+    print("Enter your first name: ")
+    val firstName = readLine()
+
+    print("Enter your last name: ")
+    val lastName = readLine()
+
+    println(s"Your name is $firstName $lastName")
+
+}
+Then compile it with scalac:
+
+$ scalac HelloInteractive.scala
+Then run it with scala:
+
+$ scala HelloInteractive
+When you run the program and enter your first and last names at the prompts, the interaction looks like this:
+
+$ scala HelloInteractive
+Enter your first name: Alvin
+Enter your last name: Alexander
+Your name is Alvin Alexander
